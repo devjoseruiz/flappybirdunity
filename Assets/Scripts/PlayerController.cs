@@ -17,7 +17,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space") || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown("space") || Input.GetMouseButtonDown(0) ||
+            (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * force);
         }
