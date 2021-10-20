@@ -7,11 +7,14 @@ public class BlockGenerator : MonoBehaviour
     public LevelBlock levelBlock;
     public LevelBlock lastLevelBlock;
     public LevelBlock currentLevelBlock;
+    public Transform blockPipe;
+    public float blockGenerationTime = 2.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         AddNewBlock();
+        InvokeRepeating("AddNewBlockPipe", 0.0f, blockGenerationTime);
     }
 
     // Update is called once per frame
@@ -45,5 +48,15 @@ public class BlockGenerator : MonoBehaviour
         Destroy(lastLevelBlock.gameObject);
         lastLevelBlock = currentLevelBlock;
         AddNewBlock();
+    }
+
+    public void AddNewBlockPipe()
+    {
+        float distanceToGenerate = levelBlock.width / 2;
+        float randomHeight = Random.Range(-4, 8);
+        Transform pipeBlock = Instantiate(blockPipe);
+        Vector3 pipePos = Vector3.zero;
+        pipePos = new Vector3(Camera.main.transform.position.x + distanceToGenerate, randomHeight, 0);
+        pipeBlock.transform.position = pipePos;
     }
 }

@@ -851,7 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be7ad0d3e2aaed5419b1c35cc264849b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 8
   force: 300
 --- !u!1 &2036243697
 GameObject:
@@ -885,6 +885,10 @@ MonoBehaviour:
   levelBlock: {fileID: 6474860938869283343, guid: 87bf07d904436c24e8e842f67fd2bfd6,
     type: 3}
   lastLevelBlock: {fileID: 507019859}
+  currentLevelBlock: {fileID: 0}
+  blockPipe: {fileID: 113011040373423070, guid: 037f0c3c24ee8e344830c5fc5cdacfb1,
+    type: 3}
+  blockGenerationTime: 2
 --- !u!4 &2036243699
 Transform:
   m_ObjectHideFlags: 0
